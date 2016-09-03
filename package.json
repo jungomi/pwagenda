@@ -28,8 +28,12 @@
   "author": "Michael Jungo",
   "license": "MIT",
   "dependencies": {
+    "immutability-helper": "^2.0.0",
+    "normalize.css": "^4.2.0",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-addons-css-transition-group": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-toolbox": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -57,9 +61,11 @@
     "ignore-styles": "^5.0.1",
     "jsdom": "^9.4.5",
     "json-loader": "^0.5.4",
+    "node-sass": "^3.8.0",
     "nyc": "^8.1.0",
     "postcss-loader": "^0.11.1",
     "react-addons-test-utils": "^15.3.1",
+    "sass-loader": "^4.0.1",
     "sinon": "^1.17.5",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

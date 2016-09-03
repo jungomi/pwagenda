@@ -25,6 +25,14 @@ module.exports = {
         loader: 'css-loader!postcss-loader'
       })
     }, {
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: 'css-loader?sourceMap&modules&importLoaders=1'
+          + '&localIdentName=[name]__[local]___[hash:base64:5]'
+          + '!postcss-loader!sass-loader'
+      })
+    }, {
       test: /\.json$/,
       loader: 'json-loader'
     }, {
