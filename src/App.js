@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, IconButton, Layout, NavDrawer, Panel } from 'react-toolbox';
+import NavMenu from './components/NavMenu';
 
 class App extends React.Component {
   state = {
@@ -28,7 +29,7 @@ class App extends React.Component {
           active={this.state.drawerActive}
           pinned={this.state.drawerPinned}
           onOverlayClick={this.closeDrawer}>
-          <p>Menu</p>
+          <NavMenu />
         </NavDrawer>
         <Panel>
           <AppBar>
