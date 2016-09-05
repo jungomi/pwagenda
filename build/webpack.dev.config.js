@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.config.js');
+const baseConfig = require('./webpack.base.config');
 
 const devConfig = merge(baseConfig, {
   devtool: 'source-map',

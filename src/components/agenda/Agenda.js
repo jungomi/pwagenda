@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, ListSubHeader } from 'react-toolbox';
-import AgendaItem from './AgendaItem.js';
+import AgendaItem from './AgendaItem';
 import agendaTheme from './agenda.scss';
 
 const items = [{
