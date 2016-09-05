@@ -38,7 +38,6 @@
     "react-toolbox": "^1.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "^6.4.0",
     "ava": "^0.16.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
