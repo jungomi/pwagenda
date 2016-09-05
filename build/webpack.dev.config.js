@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config.js');
 
@@ -5,7 +6,10 @@ const devConfig = merge(baseConfig, {
   devtool: 'source-map',
   devServer: {
     contentBase: baseConfig.output.publicPath
-  }
+  },
+  plugins: [
+    new CopyWebpackPlugin([{ from: './src/main.css', to: 'style.css' }]),
+  ]
 });
 
 for (const loader of devConfig.module.loaders) {
