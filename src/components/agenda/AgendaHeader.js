@@ -1,22 +1,16 @@
 import React from 'react';
 import { ListSubHeader, Navigation } from 'react-toolbox';
-import EntryDialog from '../dialog/EntryDialog';
 import headerTheme from './agenda_header.scss';
 
 class AgendaHeader extends React.Component {
+  static propTypes = {
+    toggleDialog: React.PropTypes.func.isRequired
+  };
+
   state = {
-    dialogActive: false,
     hasNext: true,
     hasPrevious: false
   };
-
-  toggleDialog = () => {
-    this.setState({ dialogActive: !this.state.dialogActive });
-  }
-
-  saveEntry = () => {
-    this.toggleDialog();
-  }
 
   navButtons = [{
     key: 'arrow-left',
@@ -36,7 +30,7 @@ class AgendaHeader extends React.Component {
     flat: true,
     icon: 'add',
     className: headerTheme['button-new'],
-    onClick: this.toggleDialog
+    onClick: this.props.toggleDialog
   }];
 
   render() {
@@ -45,11 +39,6 @@ class AgendaHeader extends React.Component {
         <ListSubHeader caption="Agenda" />
         <div className={headerTheme['navigation-header']}>
           <Navigation type="horizontal" actions={this.navButtons} />
-          <EntryDialog title="Create new entry"
-            active={this.state.dialogActive}
-            toggle={this.toggleDialog}
-            save={this.saveEntry}
-          />
         </div>
       </div>
     );

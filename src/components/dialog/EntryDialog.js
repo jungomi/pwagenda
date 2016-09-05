@@ -9,8 +9,8 @@ class EntryDialog extends React.Component {
   };
 
   initialState = {
-    title: '',
-    description: ''
+    caption: '',
+    legend: ''
   };
 
   state = this.initialState;
@@ -20,12 +20,18 @@ class EntryDialog extends React.Component {
     this.props.toggle();
   };
 
+  save = () => {
+    this.props.save(this.state);
+    this.setState(this.initialState);
+    this.props.toggle();
+  };
+
   actions = [{
     label: 'Cancel',
     onClick: this.cancel
   }, {
     label: 'Save',
-    onClick: this.props.save
+    onClick: this.save
   }];
 
   handleChange = (name, value) => this.setState({ [name]: value });
@@ -41,13 +47,14 @@ class EntryDialog extends React.Component {
           <Input type="text"
             label="Title"
             value={this.state.title}
-            onChange={this.handleChange.bind(this, 'title')}
+            onChange={this.handleChange.bind(this, 'caption')}
             maxLength={60}
+            required
           />
           <Input type="text"
             label="Description"
             value={this.state.description}
-            onChange={this.handleChange.bind(this, 'description')}
+            onChange={this.handleChange.bind(this, 'legend')}
             multiline
           />
         </section>
