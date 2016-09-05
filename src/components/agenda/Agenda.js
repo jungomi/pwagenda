@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, ListSubHeader } from 'react-toolbox';
+import { List } from 'react-toolbox';
+import AgendaHeader from './AgendaHeader';
 import AgendaItem from './AgendaItem';
 import agendaTheme from './agenda.scss';
 
@@ -31,7 +32,7 @@ class Agenda extends React.Component {
     return (
       <div className={agendaTheme.agenda}>
         <List selectable>
-          <ListSubHeader caption="Agenda" />
+          <AgendaHeader caption="Agenda" />
           {agendaItems}
         </List>
       </div>
