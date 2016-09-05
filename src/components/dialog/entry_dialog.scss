@@ -1,7 +1,14 @@
+@import "~react-toolbox/lib/colors";
+
 section > div {
   display: block;
 
   > textarea {
     max-width: 100%;
   }
+}
+
+.error-form {
+  color: $palette-red-500;
+  font-size: 1.3rem;
 }

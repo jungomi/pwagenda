@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog, Input } from 'react-toolbox';
-import './entry_dialog.scss';
+import dialogTheme from './entry_dialog.scss';
 
 class EntryDialog extends React.Component {
   static propTypes = {
@@ -9,8 +9,9 @@ class EntryDialog extends React.Component {
   };
 
   initialState = {
-    caption: '',
-    legend: ''
+    errors: {},
+    title: '',
+    description: ''
   };
 
   state = this.initialState;
@@ -21,7 +22,20 @@ class EntryDialog extends React.Component {
   };
 
   save = () => {
-    this.props.save(this.state);
+    const trimmedTitle = this.state.title.trim();
+    if (!trimmedTitle) {
+      this.setState({
+        errors: {
+          field: 'caption',
+          reason: 'Title cannot be empty'
+        }
+      });
+      return;
+    }
+    this.props.save({
+      caption: trimmedTitle,
+      legend: this.state.description.trim()
+    });
     this.setState(this.initialState);
     this.props.toggle();
   };
@@ -37,6 +51,12 @@ class EntryDialog extends React.Component {
   handleChange = (name, value) => this.setState({ [name]: value });
 
   render() {
+    let titleError;
+    if (this.state.errors.field === 'caption') {
+      titleError = (<span className={dialogTheme['error-form']}>
+        * Cannot be empty
+      </span>);
+    }
     return (
       <Dialog {...this.props}
         actions={this.actions}
@@ -47,14 +67,15 @@ class EntryDialog extends React.Component {
           <Input type="text"
             label="Title"
             value={this.state.title}
-            onChange={this.handleChange.bind(this, 'caption')}
+            onChange={this.handleChange.bind(this, 'title')}
             maxLength={60}
-            required
-          />
+            required>
+            {titleError}
+          </Input>
           <Input type="text"
             label="Description"
             value={this.state.description}
-            onChange={this.handleChange.bind(this, 'legend')}
+            onChange={this.handleChange.bind(this, 'description')}
             multiline
           />
         </section>
