@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, IconButton, Layout, NavDrawer, Panel } from 'react-toolbox';
-import Agenda from './components/agenda/Agenda';
+import EntryList from './containers/entries/EntryList';
 import NavMenu from './components/NavMenu';
 
 class App extends React.Component {
@@ -40,7 +40,7 @@ class App extends React.Component {
               onClick={this.onMenuClick} />
             <h1>PWAgenda</h1>
           </AppBar>
-          <Agenda />
+          <EntryList />
         </Panel>
       </Layout>
     );

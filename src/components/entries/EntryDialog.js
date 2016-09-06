@@ -1,42 +1,37 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Dialog, Input } from 'react-toolbox';
 import dialogTheme from './entry_dialog.scss';
 
 class EntryDialog extends React.Component {
   static propTypes = {
-    toggle: React.PropTypes.func.isRequired,
-    save: React.PropTypes.func.isRequired
+    description: PropTypes.string.isRequired,
+    error: PropTypes.object.isRequired,
+    setDescription: PropTypes.func.isRequired,
+    setError: PropTypes.func.isRequired,
+    setTitle: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    toggle: PropTypes.func.isRequired,
+    visible: PropTypes.bool
   };
-
-  initialState = {
-    errors: {},
-    title: '',
-    description: ''
-  };
-
-  state = this.initialState;
 
   cancel = () => {
-    this.setState(this.initialState);
+    this.props.reset();
     this.props.toggle();
   };
 
   save = () => {
-    const trimmedTitle = this.state.title.trim();
+    const trimmedTitle = this.props.title.trim();
     if (!trimmedTitle) {
-      this.setState({
-        errors: {
-          field: 'caption',
-          reason: 'Title cannot be empty'
-        }
+      this.props.setError({
+        field: 'caption',
+        reason: 'Title cannot be empty'
       });
       return;
     }
-    this.props.save({
-      caption: trimmedTitle,
-      legend: this.state.description.trim()
-    });
-    this.setState(this.initialState);
+    this.props.save(trimmedTitle, this.props.description.trim());
+    this.props.reset();
     this.props.toggle();
   };
 
@@ -48,17 +43,17 @@ class EntryDialog extends React.Component {
     onClick: this.save
   }];
 
-  handleChange = (name, value) => this.setState({ [name]: value });
-
   render() {
     let titleError;
-    if (this.state.errors.field === 'caption') {
+    if (this.props.error.field === 'caption') {
       titleError = (<span className={dialogTheme['error-form']}>
         * Cannot be empty
       </span>);
     }
     return (
-      <Dialog {...this.props}
+      <Dialog
+        title="Create new entry"
+        active={this.props.visible}
         actions={this.actions}
         onEscKeyDown={this.props.toggle}
         onOverlayClick={this.props.toggle}
@@ -66,16 +61,16 @@ class EntryDialog extends React.Component {
         <section>
           <Input type="text"
             label="Title"
-            value={this.state.title}
-            onChange={this.handleChange.bind(this, 'title')}
+            value={this.props.title}
+            onChange={this.props.setTitle}
             maxLength={60}
             required>
             {titleError}
           </Input>
           <Input type="text"
             label="Description"
-            value={this.state.description}
-            onChange={this.handleChange.bind(this, 'description')}
+            value={this.props.description}
+            onChange={this.props.setDescription}
             multiline
           />
         </section>

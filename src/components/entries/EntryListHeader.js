@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListSubHeader, Navigation } from 'react-toolbox';
-import headerTheme from './agenda_header.scss';
+import headerTheme from './entry_list_header.scss';
 
 class AgendaHeader extends React.Component {
   static propTypes = {

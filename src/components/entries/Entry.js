@@ -2,9 +2,9 @@ import React from 'react';
 import { themr } from 'react-css-themr';
 import classNames from 'classnames';
 import { FontIcon, ListItem } from 'react-toolbox';
-import itemTheme from './agenda_item.scss';
+import entryTheme from './entry.scss';
 
-class AgendaItem extends React.Component {
+class Entry extends React.Component {
   state = {
     starred: false
   };
@@ -12,7 +12,9 @@ class AgendaItem extends React.Component {
   toggleStar = () => this.setState({ starred: !this.state.starred });
 
   render() {
-    const starClasses = classNames({ [itemTheme.starred]: this.state.starred });
+    const starClasses = classNames({
+      [entryTheme.starred]: this.state.starred
+    });
     const star = [
       <FontIcon
         key="star-icon"
@@ -32,4 +34,4 @@ class AgendaItem extends React.Component {
   }
 }
 
-export default themr('AgendaItem', itemTheme)(AgendaItem);
+export default themr('Entry', entryTheme)(Entry);
