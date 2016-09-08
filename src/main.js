@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { setEntries } from './actions';
 import App from './App';
@@ -9,7 +9,16 @@ import idbKeyval from 'idb-keyval';
 import reducer from './reducers';
 import './main.css';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const reduxDevTools = process.env.NODE_ENV !== 'production'
+  && typeof window !== 'undefined' && window.devToolsExtension
+  && window.devToolsExtension();
+const composeEnhancers = () => {
+  if (reduxDevTools) {
+    return compose(applyMiddleware(thunk), reduxDevTools);
+  }
+  return applyMiddleware(thunk);
+};
+const store = createStore(reducer, composeEnhancers());
 
 store.subscribe(() => {
   const entryList = store.getState().entryList;
