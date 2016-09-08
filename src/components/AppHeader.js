@@ -9,7 +9,7 @@ const AppHeader = ({ toggleNavMenu }) => (
       onClick={toggleNavMenu}
     />
     <h1>PWAgenda</h1>
-    </AppBar>
+  </AppBar>
 );
 
 AppHeader.propTypes = {

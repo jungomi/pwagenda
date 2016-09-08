@@ -8,6 +8,7 @@
     "build": "webpack --progress --config build/webpack.prod.config.js",
     "clean": "rm -rf dist coverage",
     "lint": "npm run lint:sass && npm run lint:js",
+    "lint:fix": "npm run lint:js -- --fix",
     "lint:js": "eslint .",
     "lint:sass": "sass-lint .",
     "test": "ava --verbose",

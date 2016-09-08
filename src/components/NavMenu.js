@@ -6,7 +6,8 @@ const NavMenu = ({ active, pinned, handleClick }) => (
   <NavDrawer
     active={active}
     pinned={pinned}
-    onOverlayClick={handleClick}>
+    onOverlayClick={handleClick}
+  >
     <List selectable>
       <ListSubHeader caption="Menu" />
       <ListItem caption="Home" leftIcon="home" />
