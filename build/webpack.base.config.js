@@ -54,6 +54,8 @@ module.exports = {
     }, {
       from: './favicon.ico'
     }, {
+      from: './service-worker.js'
+    }, {
       from: './images/',
       to: './images/'
     }]),
