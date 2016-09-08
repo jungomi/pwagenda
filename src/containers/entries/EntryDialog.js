@@ -3,7 +3,7 @@ import { addEntry, toggleDialog } from '../../actions';
 import EntryDialog from '../../components/entries/EntryDialog.js';
 
 const mapStateToProps = state => ({
-  visible: state.entryDialog.visible
+  visible: state.entryDialog
 });
 
 const mapDispatchToProps = dispatch => ({

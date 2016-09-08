@@ -1,27 +1,11 @@
-const initialState = {
-  visible: false,
-  error: {},
-  title: '',
-  description: '',
-};
-
-const entryDialog = (state = initialState, action) => {
+const entryDialog = (state = false, action) => {
   switch (action.type) {
   case 'TOGGLE_DIALOG':
-    return {
-      ...state,
-      visible: !state.visible
-    };
+    return !state;
   case 'CLOSE_DIALOG':
-    return {
-      ...state,
-      visible: false
-    };
+    return false;
   case 'OPEN_DIALOG':
-    return {
-      ...state,
-      visible: true
-    };
+    return true;
   default:
     return state;
   }
