@@ -47,7 +47,16 @@ module.exports = {
     colors: true
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: './index.html' }]),
+    new CopyWebpackPlugin([{
+      from: './index.html'
+    }, {
+      from: './manifest.json'
+    }, {
+      from: './favicon.ico'
+    }, {
+      from: './images/',
+      to: './images/'
+    }]),
     new ExtractTextPlugin('style.css')
   ]
 };

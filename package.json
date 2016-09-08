@@ -1,7 +1,7 @@
 {
   "name": "pwagenda",
   "version": "0.1.0",
-  "description": "A progressive web app agenda",
+  "description": "A progressive web agenda",
   "main": "src/main.js",
   "scripts": {
     "dev": "webpack-dev-server --hot --inline --config build/webpack.dev.config.js",
