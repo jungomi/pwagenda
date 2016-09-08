@@ -1,7 +1,6 @@
 @import "~react-toolbox/lib/colors";
 
-.itemAction
-> [data-react-toolbox="font-icon"] {
+[data-react-toolbox="font-icon"] {
   user-select: none;
   &.starred {
     color: $palette-amber-400;

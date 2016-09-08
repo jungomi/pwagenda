@@ -22,26 +22,6 @@ const entryDialog = (state = initialState, action) => {
       ...state,
       visible: true
     };
-  case 'RESET_DIALOG':
-    return {
-      ...initialState,
-      visible: state.visible
-    };
-  case 'DIALOG_SET_ERROR':
-    return {
-      ...state,
-      error: action.error
-    };
-  case 'DIALOG_SET_TITLE':
-    return {
-      ...state,
-      title: action.title
-    };
-  case 'DIALOG_SET_DESCRIPTION':
-    return {
-      ...state,
-      description: action.description
-    };
   default:
     return state;
   }

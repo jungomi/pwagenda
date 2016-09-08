@@ -1,32 +1,17 @@
 import { connect } from 'react-redux';
-import { addEntry, dialogSetDescription, dialogSetError } from '../../actions';
-import { dialogSetTitle, resetDialog, toggleDialog } from '../../actions';
+import { addEntry, toggleDialog } from '../../actions';
 import EntryDialog from '../../components/entries/EntryDialog.js';
 
 const mapStateToProps = state => ({
-  visible: state.entryDialog.visible,
-  description: state.entryDialog.description,
-  error: state.entryDialog.error,
-  title: state.entryDialog.title
+  visible: state.entryDialog.visible
 });
 
 const mapDispatchToProps = dispatch => ({
   save: (title, description) => {
-    dispatch(addEntry(title, description));
+    dispatch(addEntry(title.trim(), description.trim()));
+    dispatch(toggleDialog());
   },
-  setDescription: description => {
-    dispatch(dialogSetDescription(description));
-  },
-  setTitle: title => {
-    dispatch(dialogSetTitle(title));
-  },
-  setError: err => {
-    dispatch(dialogSetError(err));
-  },
-  reset: () => {
-    dispatch(resetDialog());
-  },
-  toggleDialog: () => {
+  toggle: () => {
     dispatch(toggleDialog());
   }
 });

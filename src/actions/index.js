@@ -5,23 +5,14 @@ export const addEntry = (title, description) => {
     type: 'ADD_ENTRY',
     id: currentId,
     title,
-    description
+    description,
+    starred: false
   };
 };
 
-export const dialogSetDescription = description => ({
-  type: 'DIALOG_SET_DESCRIPTION',
-  description
-});
-
-export const dialogSetTitle = title => ({
-  type: 'DIALOG_SET_TITLE',
-  title
-});
-
-export const dialogSetError = error => ({
-  type: 'DIALOG_SET_ERROR',
-  error
+export const toggleEntryStar = id => ({
+  type: 'TOGGLE_ENTRY_STAR',
+  id
 });
 
 export const toggleDialog = () => ({
@@ -36,6 +27,10 @@ export const openDialog = () => ({
   type: 'OPEN_DIALOG'
 });
 
-export const resetDialog = () => ({
-  type: 'RESET_DIALOG'
+export const toggleNavMenu = () => ({
+  type: 'TOGGLE_NAV_MENU'
+});
+
+export const pinNavMenu = () => ({
+  type: 'PIN_NAV_MENU'
 });
