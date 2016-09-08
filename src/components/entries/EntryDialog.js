@@ -5,7 +5,8 @@ import InputField from '../forms/InputField';
 
 const validate = ({ title }) => {
   const error = {};
-  if (!title || !title.trim()) {
+  const trimmedTitle = title && title.trim();
+  if (!trimmedTitle) {
     error.title = 'Title cannot be empty';
   }
   return error;

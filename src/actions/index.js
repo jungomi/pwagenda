@@ -1,14 +1,12 @@
-let currentId = 0;
-export const addEntry = (title, description) => {
-  currentId += 1;
-  return {
-    type: 'ADD_ENTRY',
-    id: currentId,
-    title,
-    description,
-    starred: false
-  };
-};
+import idbKeyval from 'idb-keyval';
+import { v4 } from 'node-uuid';
+
+export const addEntry = (title, description) => ({
+  type: 'ADD_ENTRY',
+  id: v4(),
+  title,
+  description
+});
 
 export const toggleEntryStar = id => ({
   type: 'TOGGLE_ENTRY_STAR',
@@ -34,3 +32,26 @@ export const toggleNavMenu = () => ({
 export const pinNavMenu = () => ({
   type: 'PIN_NAV_MENU'
 });
+
+export const startFetch = () => ({
+  type: 'START_FETCH'
+});
+
+export const setEntries = entries => ({
+  type: 'SET_ENTRIES',
+  entries,
+  timestamp: Date.now()
+});
+
+export const errorFetch = error => ({
+  type: 'ERROR_FETCH',
+  error
+});
+
+export const fetchEntries = () => dispatch => {
+  dispatch(startFetch());
+  return idbKeyval.get('entries')
+    .then(res => JSON.parse(res))
+    .then(entries => dispatch(setEntries(entries)))
+    .catch(err => dispatch(errorFetch(err)));
+};
