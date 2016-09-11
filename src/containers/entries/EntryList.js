@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchEntries, toggleDialog, toggleEntryStar } from '../../actions';
+import { toggleDialog } from '../../actions/dialog';
+import { fetchEntries, toggleEntryStar } from '../../actions/entries';
 import EntryList from '../../components/entries/EntryList.js';
 
 const mapStateToProps = state => ({

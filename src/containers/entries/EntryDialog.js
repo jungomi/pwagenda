@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { addEntry, toggleDialog } from '../../actions';
+import { toggleDialog } from '../../actions/dialog';
+import { addEntry } from '../../actions/entries';
 import EntryDialog from '../../components/entries/EntryDialog.js';
 
 const mapStateToProps = state => ({

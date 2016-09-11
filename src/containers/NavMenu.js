@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleNavMenu } from '../actions';
+import { toggleNavMenu } from '../actions/navMenu';
 import NavMenu from '../components/NavMenu';
 
 const mapStateToProps = state => ({

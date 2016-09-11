@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { setEntries } from './actions';
+import { setEntries } from './actions/entries';
 import App from './App';
 import idbKeyval from 'idb-keyval';
 import reducer from './reducers';

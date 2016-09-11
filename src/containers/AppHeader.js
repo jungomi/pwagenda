@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleNavMenu } from '../actions';
+import { toggleNavMenu } from '../actions/navMenu';
 import AppHeader from '../components/AppHeader';
 
 const mapDispatchToProps = dispatch => ({

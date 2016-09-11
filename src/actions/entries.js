@@ -13,34 +13,14 @@ export const toggleEntryStar = id => ({
   id
 });
 
-export const toggleDialog = () => ({
-  type: 'TOGGLE_DIALOG'
-});
-
-export const closeDialog = () => ({
-  type: 'CLOSE_DIALOG'
-});
-
-export const openDialog = () => ({
-  type: 'OPEN_DIALOG'
-});
-
-export const toggleNavMenu = () => ({
-  type: 'TOGGLE_NAV_MENU'
-});
-
-export const pinNavMenu = () => ({
-  type: 'PIN_NAV_MENU'
-});
-
-export const startFetch = () => ({
-  type: 'START_FETCH'
-});
-
 export const setEntries = entries => ({
   type: 'SET_ENTRIES',
   entries,
   timestamp: Date.now()
+});
+
+export const startFetch = () => ({
+  type: 'START_FETCH'
 });
 
 export const errorFetch = error => ({
