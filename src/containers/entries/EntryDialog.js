@@ -8,8 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  save: (title, description = '') => {
-    dispatch(addEntry(title.trim(), description.trim()));
+  save: (title, description = '', date) => {
+    dispatch(addEntry(title.trim(), description.trim(), Date.parse(date)));
     dispatch(toggleDialog());
   },
   toggle: () => {

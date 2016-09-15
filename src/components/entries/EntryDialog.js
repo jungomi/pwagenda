@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Dialog } from 'react-toolbox';
 import { Field, reduxForm } from 'redux-form';
+import DateField from '../forms/DateField';
 import InputField from '../forms/InputField';
 
 const validate = ({ title }) => {
@@ -21,9 +22,9 @@ const EntryDialog = ({ visible, save, toggle, reset, handleSubmit }) => {
     }
   }, {
     label: 'Save',
-    onClick: handleSubmit(({ title, description }) => {
+    onClick: handleSubmit(({ title, description, date }) => {
       reset();
-      save(title, description);
+      save(title, description, date);
     })
   }];
 
@@ -35,23 +36,26 @@ const EntryDialog = ({ visible, save, toggle, reset, handleSubmit }) => {
       onEscKeyDown={toggle}
       onOverlayClick={toggle}
     >
-      <section>
-        <Field
-          component={InputField}
-          type="text"
-          name="title"
-          label="Title"
-          maxLength={60}
-          required
-        />
-        <Field
-          component={InputField}
-          type="text"
-          name="description"
-          label="Description"
-          multiline
-        />
-      </section>
+      <Field
+        component={InputField}
+        type="text"
+        name="title"
+        label="Title"
+        maxLength={60}
+        required
+      />
+      <Field
+        component={InputField}
+        type="text"
+        name="description"
+        label="Description"
+        multiline
+      />
+      <Field
+        name="date"
+        component={DateField}
+        label="Date"
+      />
     </Dialog>
   );
 };

@@ -1,0 +1,20 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+
+[data-react-toolbox="month"] {
+  display: block;
+}
+ul[data-react-toolbox="years"] {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+[data-react-toolbox="dialog"] > section {
+  > div > div {
+    display: block;
+  }
+  > header > span, h3 {
+    font-size: $unit * 2;
+    margin: 0;
+  }
+}

@@ -5,6 +5,7 @@ const entry = (state, action) => {
       id: action.id,
       title: action.title,
       description: action.description,
+      date: action.date,
       starred: false,
       dirty: true
     };

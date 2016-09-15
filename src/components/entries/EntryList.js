@@ -30,7 +30,7 @@ class EntryList extends React.Component {
             caption="Agenda"
             toggleDialog={() => toggleDialog()}
           />
-          <EntryDialog />
+          <EntryDialog initialValues={{ date: new Date() }} />
           {
             entries.map(entry => (
               <Entry

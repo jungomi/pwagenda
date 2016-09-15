@@ -1,8 +1,36 @@
 @import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
 
 [data-react-toolbox="font-icon"] {
   user-select: none;
   &.starred {
     color: $palette-amber-400;
   }
+}
+.entry {
+  height: $unit * 8;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+.entry-header {
+  display: flex;
+  flex-direction: row;
+}
+.entry-title {
+  display: flex;
+  color: $palette-grey-900;
+  font-size: $unit * 1.6;
+  flex-grow: 1;
+}
+.entry-date {
+  color: $palette-grey-500;
+  font-size: $unit * 1.4;
+  font-style: italic;
+}
+.entry-description {
+  color: $palette-grey-600;
+  font-size: $unit * 1.4;
+  padding-top: $unit * 0.3;
 }

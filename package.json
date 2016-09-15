@@ -34,6 +34,7 @@
     "classnames": "^2.2.5",
     "idb-keyval": "^2.1.2",
     "immutability-helper": "^2.0.0",
+    "moment": "^2.15.0",
     "node-uuid": "^1.4.7",
     "normalize.css": "^4.2.0",
     "react": "^15.3.1",

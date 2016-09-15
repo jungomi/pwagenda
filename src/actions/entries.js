@@ -1,11 +1,12 @@
 import idbKeyval from 'idb-keyval';
 import { v4 } from 'node-uuid';
 
-export const addEntry = (title, description) => ({
+export const addEntry = (title, description, date) => ({
   type: 'ADD_ENTRY',
   id: v4(),
   title,
-  description
+  description,
+  date
 });
 
 export const toggleEntryStar = id => ({
