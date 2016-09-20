@@ -3,6 +3,11 @@ const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config');
 
 const devConfig = merge(baseConfig, {
+  output: {
+    path: '/',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
   devtool: 'source-map',
   devServer: {
     contentBase: baseConfig.output.publicPath
